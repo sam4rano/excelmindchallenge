@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [active, setActive] = useState(false);
 
+
   const handleResize = () => {
     if (window.innerWidth < 720) {
       setIsMobile(true);
@@ -18,29 +19,37 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    // Initialize isMobile on mount
+    handleResize();
+
+    // Add resize event listener
     window.addEventListener("resize", handleResize);
-  });
+
+    return () => {
+      // Cleanup on unmount
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);  // 
+  
 
 
   useEffect(() => {
     const handleScroll = () => {
-      if (typeof window !== "undefined") {
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > 75) {
-            setActive(true);
-          } else {
-            setActive(false);
-          }
-        });
+      if (window.scrollY > 75) {
+        setActive(true);
+      } else {
+        setActive(false);
       }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
-
+  
+    // Cleanup on unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
 
   const handleFocus = () => {
     setIsFocused(true);
@@ -53,17 +62,17 @@ const Navbar = () => {
   return (
 	<div  className={` min-w-full w-full border-b-2 bg-white border-[#F4F4F6]${
     active
-      ? " bg-white border-[#F4F4F6] fixed top-0 left-0  w-full h-[80px] z-[80]  shadow-xl transition duration-500"
+      ? " bg-white border-[#F4F4F6] fixed top-0 left-0  w-full h-[80px] z-[80]  shadow-xl transition duration-500 sm:"
       : "w-full  h-[80px] z-[80] "
   }`}>
 
-    <div className="flex flex-row max-w-[1440px] px-12 py-5 justify-between align-middle items-center h-20 mx-auto">
+    <div className="flex flex-row max-w-[1440px] px-12 sm:px-2 py-5 justify-between align-middle items-center h-20 mx-auto">
       <div>
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="Company Logo"  />
       </div>
       {!isMobile && (
         <>
-          <div className="relative  sm:w-full">
+          <div className="relative  sm:w-full sm:hidden">
             {!isFocused && (
               <Search
                 className="absolute inset-y-0 left-2 top-4 text-gray-400"
@@ -81,7 +90,7 @@ const Navbar = () => {
           <div className="flex flex-row justify-center align-middle items-center gap-4">
             <Bell />
             <div className="flex flex-row items-center gap-2 h-10">
-              <img src={profile} alt="" />
+              <img src={profile} alt="User Profile" />
               <IoCaretDownOutline size={20} />
             </div>
           </div>

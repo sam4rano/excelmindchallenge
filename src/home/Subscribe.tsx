@@ -3,7 +3,7 @@ import info from '../../src/assets/info-circle.svg';
 
 const Subscribe = () => {
   return (
-	<div className="max-w-4xl bg-[#F7C5BD] flex flex-row justify-between p-4 rounded-md">
+	<div className="max-w-4xl sm:max-w-[100%] sm:w-full sm:p-2 bg-[#F7C5BD] flex flex-row justify-between p-4 rounded-md ">
     <div className="flex flex-row justify-between gap-1 items-center align-middle">
       <img src={info} alt="information w-4 h-4"   />
       <h2 className="text-black font-bold text-base">Subscribe ended</h2>

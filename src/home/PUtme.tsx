@@ -1,4 +1,3 @@
-import React from "react";
 import unilag from "../assets/unilag.png";
 
 const PUtme = () => {

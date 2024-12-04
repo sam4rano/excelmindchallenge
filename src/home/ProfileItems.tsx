@@ -1,14 +1,12 @@
 import fire from "../assets/fire.svg";
 import streak from "../assets/ranking-star.svg";
 import badge from "../assets/Badge_01.svg";
-import subImg from "../assets/Group.svg";
-import { HiChevronRight } from "react-icons/hi2";
-
+import Info from "./Info";
 
 const ProfileItems = () => {
   return (
-    <div className="flex flex-col gap-4 ">
-      <div className="bg-bg-primary w-[773px] h-[166px] pt-5 px-8 rounded-xl mx-auto flex flex-col gap-8">
+    <div className="flex flex-col gap-4 sm:w-full">
+      <div className="bg-bg-primary w-[773px] sm:w-full h-[166px] pt-5 px-8 rounded-xl sm:rounded-none mx-auto flex flex-col gap-8">
         <div className="max-w-[263px] text-xl text-white flex flex-col gap-2">
           <h2>Hello Michael,</h2>
           <p className="text-white text-opacity-75 text-lg ">
@@ -30,22 +28,9 @@ const ProfileItems = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-row justify-between align-middle items-center w-[773px] mx-auto bg-white rounded-xl px-4 py-4">
-        <div className="flex flex-row gap-2">
-          <img src={subImg} alt="group img" />
-          <div >
-            <h4 className="text-lg font-bold">2024 Predicted Questions</h4>
-            <p className="text-base text-[#6C7E8E] leading-tight">
-              Suspendisse enim quis hendrerit est volutpat nunc nisi nulla
-              porttitor.
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-row gap-2 justify-center align-middle items-center">
-			<h4 className="text-bg-primary font-bold">Subscribe</h4>
-			<HiChevronRight className="text-bg-primary " />
+      <div className="sm:hidden">
 
-		</div>
+      <Info />
       </div>
     </div>
   );

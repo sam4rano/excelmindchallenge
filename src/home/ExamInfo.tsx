@@ -1,6 +1,7 @@
 import waec from "../assets/waec.png";
 import lock from "../assets/lock.png";
 import ExamList from "./ExamList";
+import Info from "./Info";
 
 interface examInfoProps {
   id: number;
@@ -35,12 +36,12 @@ const ExamInfo = () => {
     },
   ];
   return (
-    <div className="bg-white max-w-[774px] h-[656px] px-8 rounded-xl mx-auto flex flex-col gap-6 py-4">
-      <div className="flex flex-row justify-between">
+    <div className="bg-white max-w-[774px] sm:max-w-full sm:w-full h-[656px] px-8 rounded-xl mx-auto flex flex-col gap-6 py-4 sm:overflow-clip">
+      <div className="flex flex-row justify-between sm:w-full">
         <h1 className="text-lg font-bold">O'Level exams</h1>
         <p className="text-lg font-bold text-bg-primary">Subscribe</p>
       </div>
-      <div className="flex flex-row gap-4 scrollbar-custom bg-bg-gray overflow-x-scroll w-full p-0">
+      <div className="flex flex-row  gap-4 scrollbar-custom bg-bg-gray overflow-x-scroll w-full p-0">
         {examData.map((data) => (
           <div
             key={data.id}
@@ -61,6 +62,12 @@ const ExamInfo = () => {
           </div>
         ))}
       </div>
+      <div className="lg:hidden xl:hidden">
+
+      <Info />
+      </div>
+     
+    
 	  <ExamList/>
     </div>
   );

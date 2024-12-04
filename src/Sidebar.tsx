@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Exams from "./components/Exams";
 import MyExams from "./components/MyExams";
 import Forum from "./components/Forum";
@@ -51,8 +51,33 @@ const Sidebar = () => {
     setActiveTab(tabId);
   };
 
+  const [isMobile, setIsMobile] = useState(false);
+
+
+  const handleResize = () => {
+    if (window.innerWidth < 720) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  };
+
+  useEffect(() => {
+    // Initialize isMobile on mount
+    handleResize();
+
+    // Add resize event listener
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      // Cleanup on unmount
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); 
+
   return (
     <div className="w-full flex flex-row ">
+      {!isMobile && (
       <ul className="flex flex-col gap-4 pt-10 max-w-[200px] w-full border-r-2 border-[#F4F4F6]">
         {sidebarData.map((data) => (
           <li
@@ -85,6 +110,7 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
+      )}
       <div className="w-full bg-bg-gray">
         {activeTab === 1 && <Home />}
         {activeTab === 2 && <MyExams />}

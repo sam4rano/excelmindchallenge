@@ -22,9 +22,6 @@ const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const ChartContainer = () => {
   const [selectedDay, setSelectedDay] = useState<string | null>(null);
-  const [maxMinutes, setMaxMinutes] = useState<number>(
-    Math.max(...chartData.map((data) => data.minutes))
-  );
 
   // Handle day selection
   const handleDaySelect = (day: string) => {
