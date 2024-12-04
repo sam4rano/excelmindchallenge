@@ -36,7 +36,7 @@ const ExamInfo = () => {
     },
   ];
   return (
-    <div className="bg-white max-w-[774px] sm:max-w-full sm:w-full h-[656px] px-8 rounded-xl mx-auto flex flex-col gap-6 py-4 sm:overflow-clip">
+    <div className="bg-white max-w-[774px] sm:max-w-full sm:w-full h-[656px] px-8 rounded-xl sm:h-auto mx-auto flex flex-col gap-6 py-4 sm:overflow-clip">
       <div className="flex flex-row justify-between sm:w-full">
         <h1 className="text-lg font-bold">O'Level exams</h1>
         <p className="text-lg font-bold text-bg-primary">Subscribe</p>

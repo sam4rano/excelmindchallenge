@@ -1,6 +1,5 @@
 import ChartContainer from "./home/ChartContainer";
 import ExamInfo from "./home/ExamInfo";
-import Info from "./home/Info";
 import InfoContainer from "./home/InfoContainer";
 import LeaderBoard from "./home/LeaderBoard";
 import ProfileItems from "./home/ProfileItems";
